@@ -209,6 +209,7 @@ nav a:hover
 }
 .carbon
 {
+    position: relative;
     min-height: calc(var(--height) + 70svh);
     pointer-events: none;
     background-image: url("./assets/carbon.png");
