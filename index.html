@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="reset.css">
 		<link rel="stylesheet" href="style.css">
+		<script src="script.js" defer></script>
 	</head>
 	<body>
 		<nav>
@@ -16,16 +17,58 @@
 			</ul>
 		</nav>
 		<img class="titulo" src="./assets/titulo.png" />
-		
-		<div class="cta">
-			<a><img class="play" src="./assets/play.svg" /></a>
-			<h1>Una serie de Erix Granados Ospino</h1>
-			<button class="unete">Únete a esta historia</button>	
+
+		<div class="fondo">
+			<img class="nube uno" src="./assets/nube-1.png" />
+			<img class="nube dos" src="./assets/nube-1.png" />
+			<img class="nube tres" src="./assets/nube-1.png" />
+
+			<img class="play" src="./assets/play.svg" />
+			<div class="cta">
+				<h1>Una serie de Erix Granados Ospino</h1>
+				<button class="unete">Únete a esta historia</button>	
+			</div>
 		</div>
+
 		
 		<img class="flecha" src="./assets/flecha.svg" />
-		<div class="mask"></div>
-		<p>No es una serie para la neutralidad. Es una serie que milita desde el cine por el cuidad
-		ambiental, la justicia territorial y una transición energética verdaderamente justa</p>
+		<div class="mask">
+			<div class="carbon"></div>
+			<div class="gradient"></div>
+		</div>
+
+		<div class="popup-video">
+			<span>&times;</span>
+			<iframe src="https://www.youtube.com/watch?v=egqCJ7gV6dQ"></iframe>
+		</div>
+		<main>
+			<div class="main-gradient block"></div>
+			<div class="main-gradient sticky"></div>
+			<p class="cta-text">
+				No es una serie para la neutralidad. Es una serie que milita desde el cine por
+				el cuidado ambiental, la justicia territorial y una transición energética
+				verdaderamente justa.
+			</p>
+			<iframe
+			    src="./assets/presentacion.pdf"
+			    width="100%"
+			></iframe>
+			<button class="unete">Conoce más de la serie</button>
+			
+			<h2>Únete a nosotros en este camino</h2>
+			<footer>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dolor
+					justo, vulputate et eleifend sed, gravida id magna. Duis sed suscipit
+					libero
+				</p>
+				<div class="contact">
+					<h3>Contacto</h3>
+					<p>Erix Granados Ospino</p>
+					<p>erixgranados@gmail.com</p>
+				</div>
+			</footer>
+		</main>
+
 	</body>
 </html>

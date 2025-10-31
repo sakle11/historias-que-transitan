@@ -21,11 +21,12 @@
 
 body
 {
+    --height: 130svh;
     background-image: url("./assets/fondo.jpg");
     background-size: 260%;
     background-position: 50% 30%;
     background-attachment: fixed;
-    min-height: 100vh;
+    min-height: var(--height);
     font-family: "Libre Baskerville";
 }
 
@@ -34,7 +35,8 @@ nav, .cta, .titulo, .flecha
     position: fixed;
 }
 
-.cta, .titulo, .flecha
+
+.cta, .titulo, .flecha, .play
 {
     left: 50%;
     transform: translateX(-50%);
@@ -75,12 +77,21 @@ nav a:hover
     color: hsl(0 0% 90%);
 }
 
+.play
+{
+    position: fixed;
+    top: 45svh;
+    width: 6rem;
+    padding-top: 1.6rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
 .cta
 {
     text-align: center;
-    top: 25.5rem;
+    top: 55svh;
     left: 50%;
-    transform: translateX(-50%);
     width: 100%;
 
     display: flex;
@@ -90,27 +101,46 @@ nav a:hover
 
 .titulo
 {
-    top: 12rem;
-    width: 55%;
-    z-index: 100;
+    top: 24svh;
+    width: 60%;
+    max-width: 55rem;
+    z-index: 15;
+    transition: 0.7s ease-in-out;
 }
 
-.mask
+.fondo
 {
-    position: relative;
-    min-height: 230vh;
-    background-image: url("./assets/carbon.png");
-    background-position: 50% 90%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 10;
+    position: fixed;
+    width: 100%;
+    min-height: var(--height);
 }
 
-.cta .play
+.nube
 {
-    width: 6rem;
-    padding-top: 1.6rem;
-    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+}
+.nube.uno
+{
+    opacity: 60%;
+    width: 60rem;
+    top: 4%;
+    left: -14%;
+}
+.nube.dos
+{
+    opacity: 85%;
+    width: 80rem;
+    top: 40%;
+    left: -15%;
+}
+.nube.tres
+{
+    opacity: 70%;
+    width: 68rem;
+    top: 15%;
+    right: -15%;
 }
 
 .cta h1
@@ -119,7 +149,7 @@ nav a:hover
     font-size: 2.3rem;
 }
 
-.cta .unete
+.unete
 {
     background-color: transparent;
     border: 2px solid white;
@@ -138,7 +168,137 @@ nav a:hover
     bottom: 0.8rem;
 }
 
+.popup-video
+{
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .8);
+    height: 100%;
+    width: 100%;
+}
+.popup-video iframe
+{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    border-radius: 5px;
+    border: 3px solid white;
+    object-fit: cover;
+}
+.popup-video span
+{
+    position: absolute;
+    top: 5px; right: 20px;
+    font-size: 4rem;
+    color: white;
+    font-weight: bolder;
+    font-family: "Arial";
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* entering carbon */
+.mask
+{
+    pointer-events: none;
+    position: relative;
+}
+.carbon
+{
+    min-height: calc(var(--height) + 70svh);
+    pointer-events: none;
+    background-image: url("./assets/carbon.png");
+    background-position: 50% 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 20;
+}
+
+.gradient
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(transparent, black);
+    height: 20svh;
+}
+.main-gradient
+{
+    position: sticky;
+    display: block;
+    width: 100%;
+}
+.main-gradient.block
+{
+    top: 0;
+    height: 25svh;
+    background-color: black;
+}
+.main-gradient.sticky
+{
+    top: 25svh;
+    height: 10svh;
+    background-image: linear-gradient(black, transparent);
+}
+
+main
+{
+    position: absolute;
+    width: 100%;
+    min-height: 200svh;
+    background-color: black;
+    padding-inline: 15%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .cta-text
+{
+    font-size: 3.2rem;
+    text-align: center;
+    padding-top: 25rem;
+    padding-bottom: 6rem;
+}
+main iframe
+{
+    min-height: 70svh;
+    margin-bottom: 3rem;
+}
+
+h2
+{
+    font-size: 4rem;
+    padding-top: 15rem;
+}
+footer
+{
+    display: flex;
+    flex-direction: row;
+    padding-block: 5rem;
+    gap: 8%;
+}
+footer .contact
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+footer p
+{
+    font-size: 2rem;
+}
+footer h3
+{
+    font-size: 3rem;
+}
+
 /* animations */
+
 @keyframes pulse
 {
     0% { opacity: 100%; }
@@ -163,5 +323,44 @@ nav a:hover
 body
 {
     animation: parallax linear;
+    animation-timeline: scroll();
+}
+
+@keyframes nube-uno
+{
+    to
+    {
+       transform: translate(20%, 4%);
+    }
+}
+.nube.uno
+{
+    animation: nube-uno linear;
+    animation-timeline: scroll();
+}
+
+@keyframes nube-dos
+{
+    to
+    {
+       transform: translate(5%, -20%);
+    }
+}
+.nube.dos
+{
+    animation: nube-dos linear;
+    animation-timeline: scroll();
+}
+
+@keyframes nube-tres
+{
+    to
+    {
+       transform: translate(-20%, -3%);
+    }
+}
+.nube.tres
+{
+    animation: nube-tres linear;
     animation-timeline: scroll();
 }
