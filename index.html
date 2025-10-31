@@ -11,9 +11,9 @@
 	<body>
 		<nav>
 			<ul>
-				<li><a href="">Teaser</a></li>
+				<li><a href="javascript:void(0);" id="play-video">Teaser</a></li>
 				<li><a href="">La Serie</a></li>
-				<li><a href="">Juntate</a></li>
+				<li><a href="#footer">Juntate</a></li>
 			</ul>
 		</nav>
 		<img class="titulo" src="./assets/titulo.png" />
@@ -23,7 +23,7 @@
 			<img class="nube dos" src="./assets/nube-1.png" />
 			<img class="nube tres" src="./assets/nube-1.png" />
 
-			<img class="play" src="./assets/play.svg" />
+			<img class="play" id="play-video" src="./assets/play.svg" />
 			<div class="cta">
 				<h1>Una serie de Erix Granados Ospino</h1>
 				<button class="unete">Únete a esta historia</button>	
@@ -39,7 +39,7 @@
 
 		<div class="popup-video">
 			<span>&times;</span>
-			<iframe src="https://www.youtube.com/watch?v=egqCJ7gV6dQ"></iframe>
+			<iframe src="https://www.youtube.com/embed/egqCJ7gV6dQ"></iframe>
 		</div>
 		<main>
 			<div class="main-gradient block"></div>
@@ -56,7 +56,7 @@
 			<button class="unete">Conoce más de la serie</button>
 			
 			<h2>Únete a nosotros en este camino</h2>
-			<footer>
+			<footer id="footer">
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dolor
 					justo, vulputate et eleifend sed, gravida id magna. Duis sed suscipit

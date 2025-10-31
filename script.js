@@ -14,12 +14,15 @@ function scrollFunction() {
     }
 }
 
-document.querySelector('.play').onclick =_=>
+document.querySelectorAll('#play-video').forEach(vid =>
 {
-    document.querySelector(".popup-video").style.display = "block";
-}
+    vid.onclick =_=>
+    {	
+        document.querySelector(".popup-video").style.display = "block";
+    }
+});
 
 document.querySelector(".popup-video span").onclick =_=>
 {
     document.querySelector(".popup-video").style.display = "none";
-}
+}	
