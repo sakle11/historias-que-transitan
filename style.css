@@ -1,10 +1,3 @@
-body
-{
-    background-image: url("./assets/fondo.jpg");
-    background-size: 260%;
-    background-position: 50% 40%;
-}
-
 @font-face
 {
     font-family: "Libre Baskerville";
@@ -26,13 +19,38 @@ body
     font-weight: regular;
 }
 
+body
+{
+    background-image: url("./assets/fondo.jpg");
+    background-size: 260%;
+    background-position: 50% 30%;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: "Libre Baskerville";
+}
 
+nav, .cta, .titulo, .flecha
+{
+    position: fixed;
+}
+
+.cta, .titulo, .flecha
+{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav
+{
+    width: 100%;
+    top: 0;
+}
 nav ul
 {
     list-style-type: none;
     padding: 0;
     padding-inline: 30%;
-    padding-block: 3.4rem;
+    padding-block: 2.6rem;
     margin: 0;
     display: flex;
 }
@@ -47,7 +65,6 @@ nav a
 {
     color: white;
     text-decoration: none;
-    font-family: "Libre Baskerville";
     font-weight: bold;
     font-size: 1.4rem;
     text-transform: uppercase;
@@ -58,15 +75,93 @@ nav a:hover
     color: hsl(0 0% 90%);
 }
 
-.title
+.cta
 {
     text-align: center;
-    margin-top: 4rem;
+    top: 25.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.title img
+.titulo
 {
-    width: 60rem;
-    margin: auto;
-    display: block;
+    top: 12rem;
+    width: 55%;
+    z-index: 100;
+}
+
+.mask
+{
+    position: relative;
+    min-height: 230vh;
+    background-image: url("./assets/carbon.png");
+    background-position: 50% 90%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+.cta .play
+{
+    width: 6rem;
+    padding-top: 1.6rem;
+    cursor: pointer;
+}
+
+.cta h1
+{
+    padding-top: 3.5rem;
+    font-size: 2.3rem;
+}
+
+.cta .unete
+{
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 0.4rem 2.7rem;
+    margin-top: 1.1rem;
+    
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.flecha
+{
+    width: 4rem;
+    bottom: 0.8rem;
+}
+
+/* animations */
+@keyframes pulse
+{
+    0% { opacity: 100%; }
+    50% { opacity: 40%; }
+    100% { opacity: 100% }
+}
+
+.cta .play, .flecha
+{
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes parallax
+{
+    to
+    {
+	background-position: 50% 35%;
+	background-size: 230%;
+    }
+}
+
+body
+{
+    animation: parallax linear;
+    animation-timeline: scroll();
 }
