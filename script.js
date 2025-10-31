@@ -6,11 +6,11 @@ function scrollFunction() {
     let threshold = oneVhInPixels * 160;
     
     if (window.scrollY < threshold) {
-	titulo.style.width = "55%";
-	titulo.style.top = "12rem";
+	titulo.style.width = "60%";
+	titulo.style.top = "24svh";
     } else {
 	titulo.style.width = "35%";
-	titulo.style.top = "6rem";
+	titulo.style.top = "12svh";
     }
 }
 
